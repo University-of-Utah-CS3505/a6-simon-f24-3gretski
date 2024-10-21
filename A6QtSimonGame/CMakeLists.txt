@@ -26,8 +26,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(A6QtSimonGame
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        lose_popup.ui
-        model.h model.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET A6QtSimonGame APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
