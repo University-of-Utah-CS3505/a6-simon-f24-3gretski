@@ -10,12 +10,15 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    model.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    model.h
 
 FORMS += \
+    losepopup.ui \
     mainwindow.ui
 
 # Default rules for deployment.
