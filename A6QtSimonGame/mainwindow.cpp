@@ -11,6 +11,20 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             &QPushButton::clicked,
             &model,
             &model::startGame);
+    connect(ui->redButton,
+            &QPushButton::clicked,
+            &model,
+            &model::redButtonPressed);
+    ui->redButton->setStyleSheet(
+            QString("QPushButton {background-color: rgb(0,0,255);}"
+                " QPushButton:pressed {background-color: rgb(150,150,255);}"));
+    ui->blueButton->setStyleSheet(
+        QString("QPushButton {background-color: rgb(200,50,50);}"
+                " QPushButton:pressed {background-color: rgb(255,150,150);}"));
+    connect(ui->blueButton,
+            &QPushButton::clicked,
+            &model,
+            &model::blueButtonPressed);
 }
 
 MainWindow::~MainWindow()
