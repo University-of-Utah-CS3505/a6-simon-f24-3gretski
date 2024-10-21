@@ -12,8 +12,6 @@ model::model(QObject *parent) : QObject(parent)
 
 void model::startGame() {
     std::cout << "clicked start" << std::endl;
-    //set enabled to true
-
 }
 
 void model::redButtonPressed() {
