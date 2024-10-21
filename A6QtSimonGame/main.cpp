@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include "model.h"
+
 #include <QLocale>
 #include <QTranslator>
 
@@ -17,7 +19,9 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    MainWindow w;
+
+    model model;
+    MainWindow w(model);
     w.show();
     return a.exec();
 }
