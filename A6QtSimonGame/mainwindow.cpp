@@ -14,6 +14,11 @@ MainWindow::MainWindow(model& model, QWidget *parent)
 
     // Disable start on clicked
 
+    connect(ui->startButton,
+            &QPushButton::clicked,
+            ui->startButton,
+            &QWidget::setEnabled);
+
     connect(ui->redButton,
             &QPushButton::clicked,
             &model,
@@ -34,6 +39,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
 // MainWindow::disableStart() {
 //     ui->startButton->setEnabled(false);
