@@ -2,7 +2,6 @@
 #define MODEL_H
 
 #include <QObject>
-#include <vector>
 
 class model : public QObject
 {
@@ -12,14 +11,11 @@ public:
 
 public slots:
     void startGame();
-    void redButtonPressed();
-    void blueButtonPressed();
 
 signals:
 
 private:
-    std::vector<int> sequence;
-    void flashSequence();
+
 };
 
 #endif // MODEL_H
