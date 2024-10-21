@@ -42,6 +42,7 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/*.cpp")
 set(OLD_GLOB
   "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/A6QtSimonGame_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/A6QtSimonGame_autogen/EWIEGA46WW/moc_model.cpp"
   "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/A6QtSimonGame_autogen/mocs_compilation.cpp"
   "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "C:/Users/3gret/source/repos/uofu-cs3500-spring24/a6-simon-f24-3gretski/A6QtSimonGame/main.cpp"
