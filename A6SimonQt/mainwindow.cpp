@@ -33,6 +33,8 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             &QPushButton::clicked,
             &model,
             &model::blueButtonPressed);
+
+    //hello
 }
 
 MainWindow::~MainWindow()
