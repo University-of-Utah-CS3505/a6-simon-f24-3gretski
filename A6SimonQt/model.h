@@ -16,10 +16,14 @@ public slots:
     void blueButtonPressed();
 
 signals:
+    void flashRedButton();
+    void flashBlueButton();
 
 private:
     std::vector<int> sequence;
     void flashSequence();
+    void addOneToSequence();
+    void computerTurnFlash(int sequenceColor);
 };
 
 #endif // MODEL_H

@@ -34,7 +34,14 @@ MainWindow::MainWindow(model& model, QWidget *parent)
             &model,
             &model::blueButtonPressed);
 
-    //hello
+    connect(&model,
+            &model::flashRedButton,
+            [this]() {
+                ui->redButton->setStyleSheet("background-color: yellow;");
+            });
+
+
+
 }
 
 MainWindow::~MainWindow()
