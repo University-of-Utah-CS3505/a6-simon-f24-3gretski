@@ -48,9 +48,6 @@ CMakeLists.txt.user*
 # Build Files
 /build
 
-# Pro User Files
-*.pro
-
 # Visual Studio generated files
 *.ib_pdb_index
 *.idb
