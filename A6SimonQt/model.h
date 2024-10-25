@@ -18,12 +18,15 @@ public slots:
 signals:
     void flashRedButton();
     void flashBlueButton();
+    void failGame();
 
 private:
     std::vector<int> sequence;
+    int currUserIndex;
     void flashSequence();
     void addOneToSequence();
     void computerTurnFlash(int sequenceColor);
+    void verifyUserTurn(int colorVal);
 };
 
 #endif // MODEL_H

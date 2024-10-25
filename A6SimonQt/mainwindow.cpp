@@ -51,6 +51,11 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             this,
             &MainWindow::setBlueFlashColor);
 
+    connect(&model,
+            &model::failGame,
+            this,
+            &MainWindow::setBlueFlashColor);
+
 }
 
 MainWindow::~MainWindow()
