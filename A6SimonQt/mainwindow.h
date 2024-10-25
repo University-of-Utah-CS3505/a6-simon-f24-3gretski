@@ -18,6 +18,10 @@ public:
     MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void setRedFlashColor();
+    void setBlueFlashColor();
+
 private:
     Ui::MainWindow *ui;
 };
