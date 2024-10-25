@@ -4,12 +4,12 @@
 #include <QTimer>
 #include <iostream>
 
- QTimer *timer;
+// Index value to keep track of Qtimer intervals
+int intervalIndex;
 
 MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    // Create interval timer
-    timer = new QTimer(this);
+    intervalIndex = 1000;
 
     // Call startGame method/slot when clicked is pressed
     ui->setupUi(this);
@@ -60,27 +60,31 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::setRedFlashColor() {
-    std::cout << "setRedFlashColor called" << std::endl;
-    QTimer::singleShot(1000, this,  [this]() {
+
+    QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->redButton->setStyleSheet("background-color: rgb(255,150,150);");
     });
+    intervalIndex += 500;
 
-    QTimer::singleShot(2000, this,  [this]() {
+    QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
     });
+    intervalIndex += 1000;
+
    //  ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
 
 }
 
 void MainWindow::setBlueFlashColor() {
-    std::cout << "setBlueFlashColor called" << std::endl;
     QTimer::singleShot(1000, this,  [this]() {
         ui->blueButton->setStyleSheet("background-color: rgb(150,150,255);");
     });
+     intervalIndex += 500;
 
     QTimer::singleShot(2000, this,  [this]() {
         ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
     });
+    intervalIndex += 1000;
 
     //background-color: rgb(150,150,255); desat-blue
     //background-color: rgb(255,150,150);" desat-red
