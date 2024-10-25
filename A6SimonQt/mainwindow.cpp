@@ -43,24 +43,12 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
 
     connect(&model,
             &model::flashRedButton,
-            QTimer::singleShot(1000, this, &MainWindow::setRedFlashColor)
-            );
+            this,
+            &MainWindow::setRedFlashColor);
     connect(&model,
             &model::flashBlueButton,
-            QTimer::singleShot(1000, this, &MainWindow::setBlueFlashColor)
-            );
-
-
-    // connect(&model,
-    //         &model::flashRedButton,
-    //         [this]() {
-    //             ui->redButton->setStyleSheet("background-color: rgb(150,150,255);}");
-    //         });
-    // connect(&model,
-    //         &model::flashBlueButton,
-    //         [this]() {
-    //             ui->blueButton->setStyleSheet("background-color: rgb(255,150,150);");
-    //         });
+            this,
+            &MainWindow::setBlueFlashColor);
 
 }
 
@@ -69,12 +57,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::setRedFlashColor() {
-    ui->redButton->setStyleSheet("background-color: rgb(150,150,255);");
+    QTimer::singleShot(1000, this,  [this]() {
+        ui->redButton->setStyleSheet("background-color: rgb(150,150,255);");
+    });
 }
 
 void MainWindow::setBlueFlashColor() {
-    ui->blueButton->setStyleSheet("background-color: rgb(255,150,150);");
+    QTimer::singleShot(1000, this,  [this]() {
+        ui->blueButton->setStyleSheet("background-color: rgb(255,150,150);");
+    });
 }
 
 

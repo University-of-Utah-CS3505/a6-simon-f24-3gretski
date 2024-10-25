@@ -14,6 +14,8 @@ void model::startGame() {
     std::cout << "clicked start" << std::endl;
     //set enabled to true
     addOneToSequence();
+    addOneToSequence();
+    addOneToSequence();
     flashSequence();
 }
 
