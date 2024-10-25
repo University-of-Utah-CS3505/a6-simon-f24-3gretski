@@ -56,6 +56,12 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             this,
             &MainWindow::setBlueFlashColor);
 
+    connect(&model,
+            &model::updatePercentage,
+            [this](int percentage) {
+                ui->progressBar->setValue(percentage);
+            });
+
 }
 
 MainWindow::~MainWindow()

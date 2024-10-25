@@ -4,6 +4,7 @@
 #include <time.h>
 
 std::vector<int> sequence = {};
+double progressPercentage;
 
 model::model(QObject *parent) : QObject(parent)
 {
@@ -42,13 +43,20 @@ void model::verifyUserTurn(int colorVal) {
 //        std::cout << "Fail game emit reached"  << std::endl;
         emit failGame();
     }
+
+    progressPercentage = 100 * ((double)currUserIndex + 1 / (double)sequence.size());
+
+
     //either check here or when progress bar 100% and call addOneToSequence and flashSequence
     currUserIndex++;
 }
 
 //Helper to display computer flash sequence
 void model::flashSequence() {
+
     currUserIndex = 0;
+    progressPercentage = 0 ;
+
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {
             std::cout << "Flash Blue from model"  << std::endl;
@@ -67,9 +75,5 @@ void model::addOneToSequence() {
     int random = rand() % 2;
     sequence.push_back(random);
     std::cout << "number: " << random << std::endl;
-
-}
-
-void model::computerTurnFlash(int sequenceColor) {
 
 }

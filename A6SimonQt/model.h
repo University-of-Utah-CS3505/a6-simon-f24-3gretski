@@ -19,14 +19,17 @@ signals:
     void flashRedButton();
     void flashBlueButton();
     void failGame();
+    void updatePercentage(int percentage);
 
 private:
     std::vector<int> sequence;
     int currUserIndex;
+    double progressPercentage;
+
     void flashSequence();
     void addOneToSequence();
-    void computerTurnFlash(int sequenceColor);
     void verifyUserTurn(int colorVal);
+
 };
 
 #endif // MODEL_H
