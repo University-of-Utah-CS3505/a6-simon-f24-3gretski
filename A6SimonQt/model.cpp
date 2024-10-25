@@ -38,12 +38,12 @@ void model::blueButtonPressed() {
 //Helper to display computer flash sequence
 void model::flashSequence() {
     for(int sequenceColor: sequence) {
-        if(sequenceColor == 1) {
-            std::cout << "Flash Blue"  << std::endl;
+        if(sequenceColor == 0) {
+            std::cout << "Flash Blue from model"  << std::endl;
             emit flashBlueButton();
         }
         else {
-            std::cout << "Flash Red"  << std::endl;
+            std::cout << "Flash Red from model"  << std::endl;
             emit flashRedButton();
         }
     }

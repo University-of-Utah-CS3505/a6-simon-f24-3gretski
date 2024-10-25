@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "model.h"
 #include <QTimer>
+#include <iostream>
 
  QTimer *timer;
 
@@ -34,10 +35,10 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &model,
             &model::blueButtonPressed);
 
-    ui->redButton->setStyleSheet(
+    ui->blueButton->setStyleSheet(
         QString("QPushButton {background-color: rgb(0,0,255);}"
                 " QPushButton:pressed {background-color: rgb(150,150,255);}"));
-    ui->blueButton->setStyleSheet(
+    ui->redButton->setStyleSheet(
         QString("QPushButton {background-color: rgb(200,50,50);}"
                 " QPushButton:pressed {background-color: rgb(255,150,150);}"));
 
@@ -59,15 +60,32 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::setRedFlashColor() {
+    std::cout << "setRedFlashColor called" << std::endl;
     QTimer::singleShot(1000, this,  [this]() {
-        ui->redButton->setStyleSheet("background-color: rgb(150,150,255);");
+        ui->redButton->setStyleSheet("background-color: rgb(255,150,150);");
     });
+
+    QTimer::singleShot(2000, this,  [this]() {
+        ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
+    });
+   //  ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
+
 }
 
 void MainWindow::setBlueFlashColor() {
+    std::cout << "setBlueFlashColor called" << std::endl;
     QTimer::singleShot(1000, this,  [this]() {
-        ui->blueButton->setStyleSheet("background-color: rgb(255,150,150);");
+        ui->blueButton->setStyleSheet("background-color: rgb(150,150,255);");
     });
+
+    QTimer::singleShot(2000, this,  [this]() {
+        ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
+    });
+
+    //background-color: rgb(150,150,255); desat-blue
+    //background-color: rgb(255,150,150);" desat-red
+
+ //   ui->blueButton->setStyleSheet("background-color: rgb(0,0,255)");
 }
 
 
