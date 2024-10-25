@@ -2,9 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
+#include <QTimer>
 
 std::vector<int> sequence = {};
 double progressPercentage;
+int intervalIndex = 1000;
 
 model::model(QObject *parent) : QObject(parent)
 {
@@ -50,13 +52,22 @@ void model::verifyUserTurn(int colorVal) {
 
     //either check here or when progress bar 100% and call addOneToSequence and flashSequence
     currUserIndex++;
+
+    //
+    if(progressPercentage == 100.0) {
+        //pause before starting the computer turn(for progress bar)
+        QTimer::singleShot(intervalIndex, this, [this]() {addOneToSequence();}
+        );
+
+        flashSequence();
+        intervalIndex += 1000;
+    }
 }
 
 //Helper to display computer flash sequence
 void model::flashSequence() {
-
     currUserIndex = 0;
-    progressPercentage = 0 ;
+    progressPercentage = 0;
 
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {

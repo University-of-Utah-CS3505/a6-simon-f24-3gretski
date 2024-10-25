@@ -25,6 +25,7 @@ private:
     std::vector<int> sequence;
     int currUserIndex;
     double progressPercentage;
+    int intervalIndex;
 
     void flashSequence();
     void addOneToSequence();
