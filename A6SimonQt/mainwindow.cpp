@@ -59,7 +59,7 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
     connect(&model,
             &model::updatePercentage,
             [this](int percentage) {
-                ui->progressBar->setValue(percentage);
+                ui->progressBar->setValue(percentage); //percentage
             });
 
 }

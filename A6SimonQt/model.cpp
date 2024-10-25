@@ -45,6 +45,7 @@ void model::verifyUserTurn(int colorVal) {
     }
 
     progressPercentage = 100 * ((double)currUserIndex + 1 / (double)sequence.size());
+    emit updatePercentage((int)progressPercentage);
 
 
     //either check here or when progress bar 100% and call addOneToSequence and flashSequence
