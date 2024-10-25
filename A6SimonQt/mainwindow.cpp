@@ -58,7 +58,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::setRedFlashColor() {
 
     QTimer::singleShot(intervalIndex, this,  [this]() {
@@ -70,9 +69,6 @@ void MainWindow::setRedFlashColor() {
         ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
     });
     intervalIndex += 1000;
-
-   //  ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
-
 }
 
 void MainWindow::setBlueFlashColor() {
@@ -85,14 +81,4 @@ void MainWindow::setBlueFlashColor() {
         ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
     });
     intervalIndex += 1000;
-
-    //background-color: rgb(150,150,255); desat-blue
-    //background-color: rgb(255,150,150);" desat-red
-
- //   ui->blueButton->setStyleSheet("background-color: rgb(0,0,255)");
 }
-
-
-// MainWindow::disableStart() {
-//     ui->startButton->setEnabled(false);
-// }

@@ -21,14 +21,14 @@ void model::startGame() {
 
 //1 bool val
 void model::redButtonPressed() {
-    // CurrentUserValue = 0
-    // Check 0 against computer sequence/turn index at the correct index using helper
+    // CurrentUserValue = 1
+    // Check 1 against computer sequence/turn index at the correct index using helper
 }
 
 //0 bool val
 void model::blueButtonPressed() {
-    // CurrentUserValue = 1
-    // Check 1 against computer sequence/turn index at the correct index using helper
+    // CurrentUserValue = 0
+    // Check 0 against computer sequence/turn index at the correct index using helper
 }
 
 
