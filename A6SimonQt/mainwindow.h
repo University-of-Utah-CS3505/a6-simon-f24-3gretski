@@ -22,8 +22,6 @@ private:
     int intervalIndex;
 
 public slots:
-    void setRedFlashColor();
-    void setBlueFlashColor();
 
 private:
     Ui::MainWindow *ui;

@@ -19,6 +19,8 @@ public slots:
 signals:
     void flashRedButton();
     void flashBlueButton();
+    void revertRedButton();
+    void revertBlueButton();
     void failGame();
     void updatePercentage(int percentage);
     void enableButtons(bool isEnabled);

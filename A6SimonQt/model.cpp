@@ -80,15 +80,33 @@ void model::flashSequence() {
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {
             std::cout << "Flash Blue"  << std::endl;
-            emit flashBlueButton();
+
+            QTimer::singleShot(intervalIndex, this, [this]() { emit flashBlueButton(); });
+
+            intervalIndex += 500;
+
+            QTimer::singleShot(intervalIndex, this, [this]() { emit revertBlueButton(); });
+
+            intervalIndex += 1000;
+
+            //emit flashBlueButton();
         }
         else {
-            //std::cout << "Flash Red from model"  << std::endl;
             std::cout << "Flash Red"  << std::endl;
-            emit flashRedButton();
+
+            QTimer::singleShot(intervalIndex, this,[this]() { emit flashRedButton(); });
+
+            intervalIndex += 500;
+
+            QTimer::singleShot(intervalIndex, this, [this]() { emit revertRedButton(); });
+
+            intervalIndex += 1000;
+            //emit flashRedButton();
         }
+
     }
 
+    intervalIndex = 100;
     std::cout << "Sequence End" << std::endl;
 
 }
