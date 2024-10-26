@@ -175,6 +175,12 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
                 ui->replayLabel->setText("Hints remaining: 0");
             });
 
+    //replay sequence when button clicked
+    connect(ui->replayButton,
+            &QPushButton::clicked,
+            &model,
+            &model::iterateSequence);
+
     //enable button when sequence has been flashed
     connect(&model,
             &model::enableReplay,

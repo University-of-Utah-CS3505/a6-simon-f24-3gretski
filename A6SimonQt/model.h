@@ -14,7 +14,7 @@ public slots:
     void startGame();
     void redButtonPressed();
     void blueButtonPressed();
-    void iterateSequence(int interval);
+    void iterateSequence(bool isReplay);
 
 signals:
     void flashRedButton();

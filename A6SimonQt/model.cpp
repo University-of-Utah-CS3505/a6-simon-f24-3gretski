@@ -81,15 +81,18 @@ void model::speedUpSequence()
     }
 }
 
-void model::iterateSequence(int interval)
+void model::iterateSequence(bool isReplay)
 {
+    int interval = intervalIndex;
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {
             std::cout << "Flash Blue"  << std::endl;
 
             QTimer::singleShot(interval, this, [this]() { emit flashBlueButton(); });
 
-            intervalIndex += 500;
+            if(!isReplay) {
+                intervalIndex += 500;
+            }
             interval += 500;
 
             QTimer::singleShot(interval, this, [this]() { emit revertBlueButton(); });
@@ -101,7 +104,9 @@ void model::iterateSequence(int interval)
 
             QTimer::singleShot(interval, this,[this]() { emit flashRedButton(); });
 
-            intervalIndex += 500;
+            if(!isReplay) {
+                intervalIndex += 500;
+            }
             interval += 500;
 
             QTimer::singleShot(interval, this, [this]() { emit revertRedButton(); });
@@ -125,7 +130,7 @@ void model::flashSequence() {
 
     QTimer::singleShot(500, this, [this]() { emit updatePercentage((int)progressPercentage); });
 
-    iterateSequence(intervalIndex);
+    iterateSequence(false);
 
     // Enable red and blue buttons after the delayed sequence has been played out
     QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); }); // change button enable time to reflect
