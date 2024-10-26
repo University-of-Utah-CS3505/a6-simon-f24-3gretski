@@ -84,6 +84,13 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->blueButton,
             &QWidget::setEnabled);
 
+    connect(&model,
+            &model::failGame,
+            this,
+            &QWidget::close);
+
+    // this->close();
+
 }
 
 MainWindow::~MainWindow()

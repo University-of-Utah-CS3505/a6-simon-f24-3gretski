@@ -7,23 +7,22 @@
 model::model(QObject *parent) : QObject(parent)
 {
     sequence = {};
-    intervalIndex = 1000;
+    intervalIndex = 100;
+    currUserIndex = 0;
 }
 
 void model::startGame() {
     std::cout << "clicked start" << std::endl;
     //set enabled to true
     addOneToSequence();
- //   addOneToSequence();
- //   addOneToSequence();
+
     flashSequence();
 }
 
 //1 bool val
 void model::redButtonPressed() {
     verifyUserTurn(1);
-
-
+    std::cout << "red button pressed" << std::endl;
     // Check 1 against computer sequence/turn index at the correct index using helper
 
 }
@@ -31,6 +30,8 @@ void model::redButtonPressed() {
 //0 bool val
 void model::blueButtonPressed() {
     verifyUserTurn(0);
+
+    std::cout << "blue button pressed" << std::endl;
     // CurrentUserValue = 0
     // Check 0 against computer sequence/turn index at the correct index using helper
 }
@@ -44,7 +45,7 @@ void model::verifyUserTurn(int colorVal) {
         emit failGame();
     }
 
-    progressPercentage = 100 * ((double)currUserIndex + 1 / (double)sequence.size());
+    progressPercentage = 100 * (((double)currUserIndex + 1.0 ) / (double)sequence.size());
     emit updatePercentage((int)progressPercentage);
 
 
@@ -54,38 +55,46 @@ void model::verifyUserTurn(int colorVal) {
     //
     if(progressPercentage == 100.0) {
         //pause before starting the computer turn(for progress bar)
-        QTimer::singleShot(intervalIndex, this, [this]() {addOneToSequence();}
-        );
+        //QTimer::singleShot(intervalIndex, this, &model::addOneToSequence);
+
+        addOneToSequence();
 
         flashSequence();
-        intervalIndex += 1000;
+        intervalIndex += 100;
     }
 }
 
 //Helper to display computer flash sequence
 void model::flashSequence() {
+    std::cout << "Sequence Start" << std::endl;
+
     emit disableButtons(true);
     currUserIndex = 0;
     progressPercentage = 0;
 
+    emit updatePercentage((int)progressPercentage);
+
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {
-            std::cout << "Flash Blue from model"  << std::endl;
+            std::cout << "Flash Blue"  << std::endl;
             emit flashBlueButton();
         }
         else {
-            std::cout << "Flash Red from model"  << std::endl;
+            //std::cout << "Flash Red from model"  << std::endl;
+            std::cout << "Flash Red"  << std::endl;
             emit flashRedButton();
         }
     }
 
     emit enableButtons(true);
+    std::cout << "Sequence End" << std::endl;
+
 }
 
 void model::addOneToSequence() {
     srand(time(0));
     int random = rand() % 2;
     sequence.push_back(random);
-    std::cout << "number: " << random << std::endl;
+    //std::cout << "number: " << random << std::endl;
 
 }
