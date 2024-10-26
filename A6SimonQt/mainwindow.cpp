@@ -9,8 +9,11 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
 {
     intervalIndex = 1000;
 
-    // Call startGame method/slot when clicked is pressed
     ui->setupUi(this);
+
+    ui->gameOverButton->hide();
+
+    // Call startGame method/slot when clicked is pressed
     connect(ui->startButton,
             &QPushButton::clicked,
             &model,
@@ -115,10 +118,35 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &QWidget::setEnabled);
 
     // Fail Game
+
+    // Make game over button visible
     connect(&model,
-            &model::failGame,
-            this,
-            &QWidget::close);
+            &model::gameOver,
+            ui->gameOverButton,
+            &QWidget::setVisible);
+
+    // Enabling the game over button
+    connect(&model,
+            &model::gameOver,
+            ui->gameOverButton,
+            &QWidget::setEnabled);
+
+
+    // Disable red and blue buttons on game over
+    connect(&model,
+            &model::stopGame,
+            ui->redButton,
+            &QWidget::setEnabled);
+
+    connect(&model,
+            &model::stopGame,
+            ui->blueButton,
+            &QWidget::setEnabled);
+
+    // connect(&model,
+    //         &model::failGame,
+    //         this,
+    //         &QWidget::close);
 
 }
 

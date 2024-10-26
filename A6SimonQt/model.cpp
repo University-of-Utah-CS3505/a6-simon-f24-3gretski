@@ -41,26 +41,27 @@ void model::blueButtonPressed() {
 // computer turn index =
 void model::verifyUserTurn(int colorVal) {
     if(sequence[currUserIndex] != colorVal) {
-//        std::cout << "Fail game emit reached"  << std::endl;
-        emit failGame();
+
+        emit gameOver(true);
+        emit stopGame(false);
     }
 
-    progressPercentage = 100 * (((double)currUserIndex + 1.0 ) / (double)sequence.size());
-    emit updatePercentage((int)progressPercentage);
+    else {
+        progressPercentage = 100 * (((double)currUserIndex + 1.0 ) / (double)sequence.size());
+        emit updatePercentage((int)progressPercentage);
 
+        //either check here or when progress bar 100% and call addOneToSequence and flashSequence
+        currUserIndex++;
 
-    //either check here or when progress bar 100% and call addOneToSequence and flashSequence
-    currUserIndex++;
+        if(progressPercentage == 100.0) {
+            //pause before starting the computer turn(for progress bar)
+            //QTimer::singleShot(intervalIndex, this, &model::addOneToSequence);
 
-    //
-    if(progressPercentage == 100.0) {
-        //pause before starting the computer turn(for progress bar)
-        //QTimer::singleShot(intervalIndex, this, &model::addOneToSequence);
+            addOneToSequence();
 
-        addOneToSequence();
-
-        flashSequence();
-        //intervalIndex += 100;
+            flashSequence();
+            //intervalIndex += 100;
+        }
     }
 }
 

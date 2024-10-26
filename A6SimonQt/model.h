@@ -21,12 +21,13 @@ signals:
     void revertRedButton();
     void revertBlueButton();
 
-    void failGame();
+    void gameOver(bool isGameOver);
+    void stopGame(bool isGameRunning);
 
     void updatePercentage(int percentage);
 
     void enableButtons(bool isEnabled);
-    void disableButtons(bool isEnabled);
+    void disableButtons(bool isDisabled);
 
 private:
     std::vector<int> sequence;

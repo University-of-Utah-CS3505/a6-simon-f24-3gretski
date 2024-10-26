@@ -18,7 +18,6 @@ HEADERS += \
     model.h
 
 FORMS += \
-    losepopup.ui \
     mainwindow.ui
 
 # Default rules for deployment.

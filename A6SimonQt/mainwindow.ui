@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>791</width>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -72,13 +72,35 @@
      <number>0</number>
     </property>
    </widget>
+   <widget class="QPushButton" name="gameOverButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>120</y>
+      <width>361</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>GAME OVER: Play Again?</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>791</width>
      <height>21</height>
     </rect>
    </property>
