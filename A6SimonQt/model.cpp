@@ -86,6 +86,7 @@ void model::flashSequence() {
     std::cout << "Sequence Start" << std::endl;
 
     emit disableButtons(false);
+    emit disableReplay(true);
     std::cout << "Buttons Disabled" << std::endl;
 
     currUserIndex = 0;
@@ -124,6 +125,8 @@ void model::flashSequence() {
                                                                                             // changed interval index
 
     QTimer::singleShot(intervalIndex - 2000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
+
+    QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableReplay(true); });
 
     intervalIndex = 700;
     std::cout << "Sequence End" << std::endl;

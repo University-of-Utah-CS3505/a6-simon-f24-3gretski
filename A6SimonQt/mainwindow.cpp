@@ -163,6 +163,24 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->blueButton,
             &QWidget::setEnabled);
 
+    //Disable replay button when user clicks
+    connect(ui->replayButton,
+            &QPushButton::clicked,
+            ui->replayButton,
+            &QWidget::setEnabled);
+
+    //enable button when sequence has been flashed
+    connect(&model,
+            &model::enableReplay,
+            ui->replayButton,
+            &QWidget::setEnabled);
+
+    //disable button before sequence finishes
+    connect(&model,
+            &model::disableReplay,
+            ui->replayButton,
+            &QWidget::setDisabled);
+
 }
 
 MainWindow::~MainWindow()

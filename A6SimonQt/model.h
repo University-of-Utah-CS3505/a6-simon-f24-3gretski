@@ -27,7 +27,10 @@ signals:
     void updatePercentage(int percentage);
 
     void enableButtons(bool isEnabled);
-    void disableButtons(bool isDisabled);
+    void disableButtons(bool isEnabled);
+
+    void enableReplay(bool isEnabled);
+    void disableReplay(bool isEnabled);
 
 private:
     std::vector<int> sequence;

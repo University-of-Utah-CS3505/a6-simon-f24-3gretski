@@ -94,6 +94,35 @@
      <string>GAME OVER: Play Again?</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="replayButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>50</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Replay sequence</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="replayLabel">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>10</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hints remaining: 1</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -101,7 +130,7 @@
      <x>0</x>
      <y>0</y>
      <width>791</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
