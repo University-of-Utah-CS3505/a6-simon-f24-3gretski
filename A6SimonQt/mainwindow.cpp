@@ -37,6 +37,28 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &model,
             &model::blueButtonPressed);
 
+    // Start over when user clicks on Game Over Buttons
+    connect(ui->gameOverButton,
+            &QPushButton::clicked,
+            &model,
+            &model::startGame);
+
+    connect(ui->gameOverButton,
+            &QPushButton::clicked,
+            &model,
+            &model::startGame);
+
+    // Disable & Hide Game Over Button
+    connect(ui->gameOverButton,
+            &QPushButton::clicked,
+            ui->gameOverButton,
+            &QWidget::setDisabled);
+
+    connect(ui->gameOverButton,
+            &QPushButton::clicked,
+            ui->gameOverButton->hide);
+
+
     // Set button color on clicked
     ui->blueButton->setStyleSheet(
         QString("QPushButton {background-color: rgb(0,0,255);"
@@ -142,11 +164,6 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &model::stopGame,
             ui->blueButton,
             &QWidget::setEnabled);
-
-    // connect(&model,
-    //         &model::failGame,
-    //         this,
-    //         &QWidget::close);
 
 }
 

@@ -13,9 +13,15 @@ model::model(QObject *parent) : QObject(parent)
 
 void model::startGame() {
     std::cout << "clicked start" << std::endl;
-    //set enabled to true
-    addOneToSequence();
 
+    // Reset the game data
+    sequence = {};
+    currUserIndex = 0;
+    intervalIndex = 700;
+    progressPercentage = 0;
+
+    // Add to the sequence
+    addOneToSequence();
     flashSequence();
 }
 
@@ -106,7 +112,6 @@ void model::flashSequence() {
     QTimer::singleShot(intervalIndex - 1000, this, [this]() { emit enableButtons(true); });
     QTimer::singleShot(intervalIndex - 1000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
 
-
     intervalIndex = 700;
     std::cout << "Sequence End" << std::endl;
 
@@ -116,6 +121,4 @@ void model::addOneToSequence() {
     srand(time(0));
     int random = rand() % 2;
     sequence.push_back(random);
-    //std::cout << "number: " << random << std::endl;
-
 }
