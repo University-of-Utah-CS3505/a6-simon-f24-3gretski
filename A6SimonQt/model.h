@@ -27,46 +27,73 @@ public slots:
     void blueButtonPressed();
 
     /**
-     * @brief iterateSequence
+     * @brief iterateSequence iterates through sequence, slot activated when replay button clicked
      * @param isReplay boolean reflecting wether function is called to replay or flash sequence
      */
     void iterateSequence(bool isReplay);
 
 signals:
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief flashRedButton flash red button signal
      */
     void flashRedButton();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief flashBlueButton flash blue button signal
      */
     void flashBlueButton();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief revertRedButton revert red button signal
      */
     void revertRedButton();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief revertBlueButton revert blue button signal
      */
     void revertBlueButton();
 
+    /**
+     * @brief gameOver game over signal
+     * @param isGameOver boolean stating wether game is over or not
+     */
     void gameOver(bool isGameOver);
+
+    /**
+     * @brief stopGame stop game signal
+     * @param isGameRunning boolean stating wether game is running or not
+     */
     void stopGame(bool isGameRunning);
 
+    /**
+     * @brief updatePercentage update percentage signal
+     * @param percentage value represents percentage of user moves in sequence completed
+     */
     void updatePercentage(int percentage);
 
+    /**
+     * @brief enableButtons enable buttons signal
+     * @param isEnabled boolean representing if buttons are enabled
+     */
     void enableButtons(bool isEnabled);
+
+    /**
+     * @brief disableButtons disable buttons signal
+     * @param isEnabled boolean representing if buttons are enabled
+     */
     void disableButtons(bool isEnabled);
 
+    /**
+     * @brief enableReplay enable replay signal
+     * @param isEnabled boolean representing if buttons are enabled
+     */
     void enableReplay(bool isEnabled);
+
+    /**
+     * @brief disableReplay disable replay signal
+     * @param isEnabled boolean representing if buttons are enabled
+     */
     void disableReplay(bool isEnabled);
 
 private:
