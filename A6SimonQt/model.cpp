@@ -37,7 +37,7 @@ void model::blueButtonPressed() {
 }
 
 void model::enableBothButtons() {
-    emit enableButtons(true);
+    //emit enableButtons(true);
 }
 
 //* Helper to Take in parameter representing which button color pressed
@@ -71,7 +71,7 @@ void model::verifyUserTurn(int colorVal) {
 void model::flashSequence() {
     std::cout << "Sequence Start" << std::endl;
 
-    emit disableButtons(false);
+    //emit disableButtons(false);
     currUserIndex = 0;
     progressPercentage = 0;
 
