@@ -4,13 +4,10 @@
 #include <time.h>
 #include <QTimer>
 
-std::vector<int> sequence = {};
-double progressPercentage;
-int intervalIndex = 1000;
-
 model::model(QObject *parent) : QObject(parent)
 {
-
+    sequence = {};
+    intervalIndex = 1000;
 }
 
 void model::startGame() {
@@ -66,6 +63,7 @@ void model::verifyUserTurn(int colorVal) {
 
 //Helper to display computer flash sequence
 void model::flashSequence() {
+    emit disableButtons(true);
     currUserIndex = 0;
     progressPercentage = 0;
 
@@ -80,6 +78,7 @@ void model::flashSequence() {
         }
     }
 
+    emit enableButtons(true);
 }
 
 void model::addOneToSequence() {

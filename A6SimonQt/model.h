@@ -20,6 +20,8 @@ signals:
     void flashBlueButton();
     void failGame();
     void updatePercentage(int percentage);
+    void enableButtons(bool isEnabled);
+    void disableButtons(bool isEnabled);
 
 private:
     std::vector<int> sequence;

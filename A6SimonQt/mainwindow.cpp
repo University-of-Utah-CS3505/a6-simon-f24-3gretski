@@ -62,6 +62,28 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
                 ui->progressBar->setValue(percentage); //percentage
             });
 
+    //disable buttons when not user turn
+    connect(&model,
+            &model::disableButtons,
+            ui->redButton,
+            &QWidget::setEnabled);
+
+    connect(&model,
+            &model::disableButtons,
+            ui->blueButton,
+            &QWidget::setEnabled);
+
+    //enable buttons when not user turn
+    connect(&model,
+            &model::enableButtons,
+            ui->redButton,
+            &QWidget::setEnabled);
+
+    connect(&model,
+            &model::enableButtons,
+            ui->blueButton,
+            &QWidget::setEnabled);
+
 }
 
 MainWindow::~MainWindow()
