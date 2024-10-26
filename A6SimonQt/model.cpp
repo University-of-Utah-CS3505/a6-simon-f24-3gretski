@@ -71,15 +71,15 @@ void model::verifyUserTurn(int colorVal) {
     }
 }
 
-void model::speedUpSequence()
-{
-    if (sequence.size() >= 9) {
-        intervalIndex += 200;
-    }
-    else {
-        intervalIndex += 2000 - (sequence.size() * 200);
-    }
-}
+// void model::speedUpSequence()
+// {
+//     if (sequence.size() >= 9) {
+//         intervalIndex += 200;
+//     }
+//     else {
+//         intervalIndex += 2000 - (sequence.size() * 200);
+//     }
+// }
 
 void model::iterateSequence(bool isReplay)
 {
@@ -97,7 +97,15 @@ void model::iterateSequence(bool isReplay)
 
             QTimer::singleShot(interval, this, [this]() { emit revertBlueButton(); });
 
-            speedUpSequence();
+            if(!isReplay) {
+                intervalIndex += 1000;
+            }
+            interval += 1000;
+
+            // if (!isReplay) {
+            //     speedUpSequence();
+            // }
+
         }
         else {
             std::cout << "Flash Red"  << std::endl;
@@ -111,8 +119,19 @@ void model::iterateSequence(bool isReplay)
 
             QTimer::singleShot(interval, this, [this]() { emit revertRedButton(); });
 
-            speedUpSequence();
+            if(!isReplay) {
+                intervalIndex += 1000;
+            }
+            interval += 1000;
+
+
+            // if (!isReplay) {
+            //     speedUpSequence();
+            // }
+
         }
+
+
 
     }
 }
