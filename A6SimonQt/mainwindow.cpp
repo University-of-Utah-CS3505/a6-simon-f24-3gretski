@@ -73,7 +73,7 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
     connect(&model,
             &model::updatePercentage,
             [this](int percentage) {
-                ui->progressBar->setValue(percentage); //percentage
+                ui->progressBar->setValue(percentage);
             });
 
     // Disable buttons during computer turn
@@ -110,32 +110,3 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-// void MainWindow::setRedFlashColor() {
-
-    // QTimer::singleShot(intervalIndex, this,  [this]() {
-    //     ui->redButton->setStyleSheet("background-color: rgb(255,150,150);");
-    // });
-
-//     intervalIndex += 500;
-
-    // QTimer::singleShot(intervalIndex, this,  [this]() {
-    //     ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
-    // });
-//     intervalIndex += 1000;
-
-// }
-
-// void MainWindow::setBlueFlashColor() {
-    // QTimer::singleShot(intervalIndex, this,  [this]() {
-    //     ui->blueButton->setStyleSheet("background-color: rgb(150,150,255);");
-    // });
-//      intervalIndex += 500;
-
-    // QTimer::singleShot(intervalIndex, this,  [this]() {
-    //     ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
-    // });
-//     intervalIndex += 1000;
-
-//     //QTimer::singleShot(intervalIndex, this, &model::enableButtons);
-// }

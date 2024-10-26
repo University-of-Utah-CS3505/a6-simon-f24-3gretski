@@ -7,7 +7,7 @@
 model::model(QObject *parent) : QObject(parent)
 {
     sequence = {};
-    intervalIndex = 100;
+    intervalIndex = 700;
     currUserIndex = 0;
 }
 
@@ -74,7 +74,7 @@ void model::flashSequence() {
     currUserIndex = 0;
     progressPercentage = 0;
 
-    emit updatePercentage((int)progressPercentage);
+    QTimer::singleShot(500, this, [this]() { emit updatePercentage((int)progressPercentage); });
 
     for(int sequenceColor: sequence) {
         if(sequenceColor == 0) {
@@ -87,8 +87,6 @@ void model::flashSequence() {
             QTimer::singleShot(intervalIndex, this, [this]() { emit revertBlueButton(); });
 
             intervalIndex += 1000;
-
-            //emit flashBlueButton();
         }
         else {
             std::cout << "Flash Red"  << std::endl;
@@ -100,7 +98,6 @@ void model::flashSequence() {
             QTimer::singleShot(intervalIndex, this, [this]() { emit revertRedButton(); });
 
             intervalIndex += 1000;
-            //emit flashRedButton();
         }
 
     }
@@ -109,7 +106,7 @@ void model::flashSequence() {
     QTimer::singleShot(intervalIndex - 1000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
 
 
-    intervalIndex = 100;
+    intervalIndex = 700;
     std::cout << "Sequence End" << std::endl;
 
 }
