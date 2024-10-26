@@ -36,37 +36,53 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
 
     // Set button color on clicked
     ui->blueButton->setStyleSheet(
-        QString("QPushButton {background-color: rgb(0,0,255);}"
-                " QPushButton:pressed {background-color: rgb(150,150,255);}"));
+        QString("QPushButton {background-color: rgb(0,0,255);"
+                "border: 2px solid rgb(0,0,255); border-radius: 5px;}"
+                "QPushButton:pressed {background-color: rgb(150,150,255);"
+                "border: 2px solid rgb(150,150,255); border-radius: 5px;}"));
     ui->redButton->setStyleSheet(
-        QString("QPushButton {background-color: rgb(200,50,50);}"
-                " QPushButton:pressed {background-color: rgb(255,150,150);}"));
+        QString("QPushButton {background-color: rgb(200,50,50);"
+                "border: 2px solid rgb(200,50,50); border-radius: 5px;}"
+                "QPushButton:pressed {background-color: rgb(255,150,150);"
+                "border: 2px solid rgb(255,150,150); border-radius: 5px;}"));
 
 
     // Flashing red buttons in sequence
     connect(&model,
             &model::flashRedButton,
             [this]() {
-                ui->redButton->setStyleSheet("background-color: rgb(255,150,150);");
+                ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(255,150,150);"
+                "border: 2px solid rgb(255,150,150); border-radius: 5px;}"
+                "QPushButton:pressed {background-color: rgb(255,150,150);"
+                "border: 2px solid rgb(255,150,150); border-radius: 5px;}"));
             });
 
     connect(&model,
             &model::revertRedButton,
             [this]() {
-                ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
+                ui->redButton->setStyleSheet(QString("QPushButton {background-color: rgb(200,50,50);"
+                 "border: 2px solid rgb(200,50,50); border-radius: 5px;}"
+                 "QPushButton:pressed {background-color: rgb(255,150,150);"
+                 "border: 2px solid rgb(255,150,150); border-radius: 5px;}"));
             });
 
     // Flashing blue buttons in sequence
     connect(&model,
             &model::flashBlueButton,
             [this]() {
-                ui->blueButton->setStyleSheet("background-color: rgb(150,150,255);");
+                ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(150,150,255);"
+                  "border: 2px solid rgb(150,150,255); border-radius: 5px;}"
+                  "QPushButton:pressed {background-color: rgb(150,150,255);"
+                  "border: 2px solid rgb(150,150,255); border-radius: 5px;}"));
             });
 
     connect(&model,
             &model::revertBlueButton,
             [this]() {
-                ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
+                ui->blueButton->setStyleSheet(QString("QPushButton {background-color: rgb(0,0,255);"
+                  "border: 2px solid rgb(0,0,255); border-radius: 5px;}"
+                  "QPushButton:pressed {background-color: rgb(150,150,255);"
+                  "border: 2px solid rgb(150,150,255); border-radius: 5px;}"));
             });
 
     // Update progress bar
