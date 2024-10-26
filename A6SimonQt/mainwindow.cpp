@@ -51,10 +51,10 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             this,
             &MainWindow::setBlueFlashColor);
 
-    connect(&model,
-            &model::failGame,
-            this,
-            &MainWindow::setBlueFlashColor);
+    // connect(&model,
+    //         &model::failGame,
+    //         this,
+    //         &MainWindow::setBlueFlashColor);
 
     connect(&model,
             &model::updatePercentage,
@@ -112,12 +112,12 @@ void MainWindow::setRedFlashColor() {
 }
 
 void MainWindow::setBlueFlashColor() {
-    QTimer::singleShot(1000, this,  [this]() {
+    QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->blueButton->setStyleSheet("background-color: rgb(150,150,255);");
     });
      intervalIndex += 500;
 
-    QTimer::singleShot(2000, this,  [this]() {
+    QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
     });
     intervalIndex += 1000;
