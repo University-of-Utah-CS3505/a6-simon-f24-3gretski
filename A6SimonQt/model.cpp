@@ -119,7 +119,10 @@ void model::flashSequence() {
 
     }
 
-    QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); });
+    // Enable red and blue buttons after
+    QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); }); // change button enable time to reflect
+                                                                                            // changed interval index
+
     QTimer::singleShot(intervalIndex - 2000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
 
     intervalIndex = 700;

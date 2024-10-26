@@ -59,7 +59,7 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->gameOverButton->hide);
 
 
-    // Set button color on clicked
+    // Set button color, and set color on clicked
     ui->blueButton->setStyleSheet(
         QString("QPushButton {background-color: rgb(0,0,255);"
                 "border: 2px solid rgb(0,0,255); border-radius: 5px;}"
@@ -138,8 +138,6 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &model::enableButtons,
             ui->blueButton,
             &QWidget::setEnabled);
-
-    // Fail Game
 
     // Make game over button visible
     connect(&model,
