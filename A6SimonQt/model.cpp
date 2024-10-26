@@ -119,7 +119,7 @@ void model::flashSequence() {
 
     }
 
-    // Enable red and blue buttons after
+    // Enable red and blue buttons after the delayed sequence has been played out
     QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); }); // change button enable time to reflect
                                                                                             // changed interval index
 
