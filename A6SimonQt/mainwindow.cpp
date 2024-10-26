@@ -58,6 +58,11 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &QPushButton::clicked,
             ui->gameOverButton->hide);
 
+    connect(&model,
+            &model::gameOver,
+            ui->replayButton,
+            &QWidget::setDisabled);
+
 
     // Set button color, and set color on clicked
     ui->blueButton->setStyleSheet(

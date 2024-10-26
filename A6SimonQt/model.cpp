@@ -4,6 +4,10 @@
 #include <time.h>
 #include <QTimer>
 
+/**
+ * @brief model::model
+ * @param parent
+ */
 model::model(QObject *parent) : QObject(parent)
 {
     sequence = {};

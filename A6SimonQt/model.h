@@ -11,27 +11,24 @@ public:
     explicit model(QObject *parent = nullptr);
 
 public slots:
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief startGame calls appropriate functions and sets values when game started/restarted
      */
     void startGame();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief redButtonPressed slot activated when red button pressed
      */
     void redButtonPressed();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief blueButtonPressed slot activated when red button pressed
      */
     void blueButtonPressed();
 
-    /** @brief
-     *  @param
-     *  @return
+    /**
+     * @brief iterateSequence
+     * @param isReplay boolean reflecting wether function is called to replay or flash sequence
      */
     void iterateSequence(bool isReplay);
 
