@@ -36,9 +36,6 @@ void model::blueButtonPressed() {
     // Check 0 against computer sequence/turn index at the correct index using helper
 }
 
-void model::enableBothButtons() {
-    //emit enableButtons(true);
-}
 
 //* Helper to Take in parameter representing which button color pressed
 // computer turn index =
@@ -71,7 +68,9 @@ void model::verifyUserTurn(int colorVal) {
 void model::flashSequence() {
     std::cout << "Sequence Start" << std::endl;
 
-    //emit disableButtons(false);
+    emit disableButtons(false);
+    std::cout << "Buttons Disabled" << std::endl;
+
     currUserIndex = 0;
     progressPercentage = 0;
 
@@ -105,6 +104,10 @@ void model::flashSequence() {
         }
 
     }
+
+    QTimer::singleShot(intervalIndex - 1000, this, [this]() { emit enableButtons(true); });
+    QTimer::singleShot(intervalIndex - 1000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
+
 
     intervalIndex = 100;
     std::cout << "Sequence End" << std::endl;
