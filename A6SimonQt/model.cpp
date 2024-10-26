@@ -23,6 +23,7 @@ void model::startGame() {
 void model::redButtonPressed() {
     verifyUserTurn(1);
 
+
     // Check 1 against computer sequence/turn index at the correct index using helper
 
 }
