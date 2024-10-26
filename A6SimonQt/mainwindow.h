@@ -18,6 +18,9 @@ public:
     MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
 
+private:
+    int intervalIndex;
+
 public slots:
     void setRedFlashColor();
     void setBlueFlashColor();

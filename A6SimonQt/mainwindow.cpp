@@ -5,7 +5,6 @@
 #include <iostream>
 
 // Index value to keep track of Qtimer intervals
-int intervalIndex;
 
 MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
@@ -103,12 +102,14 @@ void MainWindow::setRedFlashColor() {
     QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->redButton->setStyleSheet("background-color: rgb(255,150,150);");
     });
+
     intervalIndex += 500;
 
     QTimer::singleShot(intervalIndex, this,  [this]() {
         ui->redButton->setStyleSheet("background-color: rgb(200,50,50);");
     });
     intervalIndex += 1000;
+
 }
 
 void MainWindow::setBlueFlashColor() {
@@ -121,4 +122,6 @@ void MainWindow::setBlueFlashColor() {
         ui->blueButton->setStyleSheet("background-color: rgb(0,0,255);");
     });
     intervalIndex += 1000;
+
+    //QTimer::singleShot(intervalIndex, this, &model::enableButtons);
 }

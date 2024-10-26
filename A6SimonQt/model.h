@@ -14,6 +14,7 @@ public slots:
     void startGame();
     void redButtonPressed();
     void blueButtonPressed();
+    void enableBothButtons();
 
 signals:
     void flashRedButton();
