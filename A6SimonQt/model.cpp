@@ -81,6 +81,37 @@ void model::speedUpSequence()
     }
 }
 
+void model::iterateSequence(int interval)
+{
+    for(int sequenceColor: sequence) {
+        if(sequenceColor == 0) {
+            std::cout << "Flash Blue"  << std::endl;
+
+            QTimer::singleShot(interval, this, [this]() { emit flashBlueButton(); });
+
+            intervalIndex += 500;
+            interval += 500;
+
+            QTimer::singleShot(interval, this, [this]() { emit revertBlueButton(); });
+
+            speedUpSequence();
+        }
+        else {
+            std::cout << "Flash Red"  << std::endl;
+
+            QTimer::singleShot(interval, this,[this]() { emit flashRedButton(); });
+
+            intervalIndex += 500;
+            interval += 500;
+
+            QTimer::singleShot(interval, this, [this]() { emit revertRedButton(); });
+
+            speedUpSequence();
+        }
+
+    }
+}
+
 //Helper to display computer flash sequence
 void model::flashSequence() {
     std::cout << "Sequence Start" << std::endl;
@@ -94,31 +125,7 @@ void model::flashSequence() {
 
     QTimer::singleShot(500, this, [this]() { emit updatePercentage((int)progressPercentage); });
 
-    for(int sequenceColor: sequence) {
-        if(sequenceColor == 0) {
-            std::cout << "Flash Blue"  << std::endl;
-
-            QTimer::singleShot(intervalIndex, this, [this]() { emit flashBlueButton(); });
-
-            intervalIndex += 500;
-
-            QTimer::singleShot(intervalIndex, this, [this]() { emit revertBlueButton(); });
-
-            speedUpSequence();
-        }
-        else {
-            std::cout << "Flash Red"  << std::endl;
-
-            QTimer::singleShot(intervalIndex, this,[this]() { emit flashRedButton(); });
-
-            intervalIndex += 500;
-
-            QTimer::singleShot(intervalIndex, this, [this]() { emit revertRedButton(); });
-
-            speedUpSequence();
-        }
-
-    }
+    iterateSequence(intervalIndex);
 
     // Enable red and blue buttons after the delayed sequence has been played out
     QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); }); // change button enable time to reflect

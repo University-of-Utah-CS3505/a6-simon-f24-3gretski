@@ -14,6 +14,7 @@ public slots:
     void startGame();
     void redButtonPressed();
     void blueButtonPressed();
+    void iterateSequence(int interval);
 
 signals:
     void flashRedButton();
@@ -38,6 +39,7 @@ private:
     double progressPercentage;
     int intervalIndex;
 
+    void extracted();
     void flashSequence();
     void addOneToSequence();
     void verifyUserTurn(int colorVal);

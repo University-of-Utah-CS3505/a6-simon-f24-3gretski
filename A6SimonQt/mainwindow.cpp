@@ -169,11 +169,23 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->replayButton,
             &QWidget::setEnabled);
 
+    connect(ui->replayButton,
+            &QPushButton::clicked,
+            [this]() {
+                ui->replayLabel->setText("Hints remaining: 0");
+            });
+
     //enable button when sequence has been flashed
     connect(&model,
             &model::enableReplay,
             ui->replayButton,
             &QWidget::setEnabled);
+
+    connect(&model,
+            &model::enableReplay,
+            [this]() {
+                ui->replayLabel->setText("Hints remaining: 1");
+            });
 
     //disable button before sequence finishes
     connect(&model,
