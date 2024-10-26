@@ -11,15 +11,54 @@ public:
     explicit model(QObject *parent = nullptr);
 
 public slots:
+    /** @brief
+     *  @param
+     *  @return
+     */
     void startGame();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void redButtonPressed();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void blueButtonPressed();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void iterateSequence(bool isReplay);
 
 signals:
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void flashRedButton();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void flashBlueButton();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void revertRedButton();
+
+    /** @brief
+     *  @param
+     *  @return
+     */
     void revertBlueButton();
 
     void gameOver(bool isGameOver);

@@ -131,8 +131,6 @@ void model::iterateSequence(bool isReplay)
 
         }
 
-
-
     }
 }
 
