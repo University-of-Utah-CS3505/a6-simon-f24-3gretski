@@ -39,6 +39,7 @@ private:
     void addOneToSequence();
     void verifyUserTurn(int colorVal);
 
+    void speedUpSequence();
 };
 
 #endif // MODEL_H

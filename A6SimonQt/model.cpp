@@ -71,6 +71,16 @@ void model::verifyUserTurn(int colorVal) {
     }
 }
 
+void model::speedUpSequence()
+{
+    if (sequence.size() >= 9) {
+        intervalIndex += 200;
+    }
+    else {
+        intervalIndex += 2000 - (sequence.size() * 200);
+    }
+}
+
 //Helper to display computer flash sequence
 void model::flashSequence() {
     std::cout << "Sequence Start" << std::endl;
@@ -93,7 +103,7 @@ void model::flashSequence() {
 
             QTimer::singleShot(intervalIndex, this, [this]() { emit revertBlueButton(); });
 
-            intervalIndex += 1000;
+            speedUpSequence();
         }
         else {
             std::cout << "Flash Red"  << std::endl;
@@ -104,13 +114,13 @@ void model::flashSequence() {
 
             QTimer::singleShot(intervalIndex, this, [this]() { emit revertRedButton(); });
 
-            intervalIndex += 1000;
+            speedUpSequence();
         }
 
     }
 
-    QTimer::singleShot(intervalIndex - 1000, this, [this]() { emit enableButtons(true); });
-    QTimer::singleShot(intervalIndex - 1000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
+    QTimer::singleShot(intervalIndex - 2000, this, [this]() { emit enableButtons(true); });
+    QTimer::singleShot(intervalIndex - 2000, this, [this]() {std::cout << "Buttons Enabled" << std::endl; });
 
     intervalIndex = 700;
     std::cout << "Sequence End" << std::endl;
