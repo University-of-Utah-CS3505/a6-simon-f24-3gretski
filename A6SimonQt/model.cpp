@@ -3,7 +3,10 @@
 #include <vector>
 #include <time.h>
 #include <QTimer>
-
+/*
+Pooja Kotha and Grace Stewart
+A6: QT Simon Game
+*/
 model::model(QObject *parent) : QObject(parent)
 {
     sequence = {};
@@ -51,16 +54,6 @@ void model::verifyUserTurn(int colorVal) {
     }
 }
 
-// void model::speedUpSequence()
-// {
-//     if (sequence.size() >= 9) {
-//         intervalIndex += 200;
-//     }
-//     else {
-//         intervalIndex += 2000 - (sequence.size() * 200);
-//     }
-// }
-
 void model::iterateSequence(bool isReplay)
 {
     int interval = intervalIndex;
@@ -79,11 +72,6 @@ void model::iterateSequence(bool isReplay)
                 intervalIndex += 1000;
             }
             interval += 1000;
-
-            // if (!isReplay) {
-            //     speedUpSequence();
-            // }
-
         }
         //when sequence color is red
         else {
@@ -100,11 +88,6 @@ void model::iterateSequence(bool isReplay)
                 intervalIndex += 1000;
             }
             interval += 1000;
-
-            // if (!isReplay) {
-            //     speedUpSequence();
-            // }
-
         }
     }
 }

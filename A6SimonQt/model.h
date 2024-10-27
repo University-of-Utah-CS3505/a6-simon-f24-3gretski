@@ -3,11 +3,20 @@
 
 #include <QObject>
 #include <vector>
+/*
+Pooja Kotha and Grace Stewart
+A6: QT Simon Game
 
+This header file defines the model class for the Simon Game
+*/
 class model : public QObject
 {
     Q_OBJECT
 public:
+    /**
+     * @brief model initilizes field variables
+     * @param parent QObject
+     */
     explicit model(QObject *parent = nullptr);
 
 public slots:

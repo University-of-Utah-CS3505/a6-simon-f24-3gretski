@@ -1,14 +1,13 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "model.h"
-#include <iostream>
 
-// Index value to keep track of Qtimer intervals
-
+/*
+Pooja Kotha and Grace Stewart
+A6: QT Simon Game
+*/
 MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    intervalIndex = 1000;
-
     ui->setupUi(this);
 
     ui->gameOverButton->hide();
@@ -63,7 +62,6 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->replayButton,
             &QWidget::setDisabled);
 
-
     // Set button color, and set color on clicked
     ui->blueButton->setStyleSheet(
         QString("QPushButton {background-color: rgb(0,0,255);"
@@ -75,7 +73,6 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
                 "border: 2px solid rgb(200,50,50); border-radius: 5px;}"
                 "QPushButton:pressed {background-color: rgb(255,150,150);"
                 "border: 2px solid rgb(255,150,150); border-radius: 5px;}"));
-
 
     // Flashing red buttons in sequence
     connect(&model,
@@ -192,6 +189,7 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             ui->replayButton,
             &QWidget::setEnabled);
 
+    //display hint available when sequence has been flashed
     connect(&model,
             &model::enableReplay,
             [this]() {
@@ -203,7 +201,6 @@ MainWindow::MainWindow(model& model, QWidget *parent) : QMainWindow(parent), ui(
             &model::disableReplay,
             ui->replayButton,
             &QWidget::setDisabled);
-
 }
 
 MainWindow::~MainWindow()

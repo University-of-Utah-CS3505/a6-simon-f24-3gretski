@@ -3,7 +3,12 @@
 
 #include <QMainWindow>
 #include "model.h"
+/*
+Pooja Kotha and Grace Stewart
+A6: QT Simon Game
 
+This header file defines the main window class for the Simon Game
+*/
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -17,9 +22,6 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(model& model, QWidget *parent = nullptr);
     ~MainWindow();
-
-private:
-    int intervalIndex;
 
 public slots:
 
