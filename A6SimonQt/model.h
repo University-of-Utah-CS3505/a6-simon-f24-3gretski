@@ -97,16 +97,34 @@ signals:
     void disableReplay(bool isEnabled);
 
 private:
+    //computer sequence represented by 0's and 1's
     std::vector<int> sequence;
+    //index of user button pressed
     int currUserIndex;
+    //progress percentage of user in sequence
     double progressPercentage;
+    //time delay given to QTimer
     int intervalIndex;
 
-    void extracted();
+    /**
+     * @brief flashSequence flashes computer sequence
+     */
     void flashSequence();
+
+    /**
+     * @brief addOneToSequence adds a color to end of sequence upon user succesfully completing sequence
+     */
     void addOneToSequence();
+
+    /**
+     * @brief verifyUserTurn checks if user pressed correct color in relation to sequence
+     * @param colorVal number representation of color user pressed
+     */
     void verifyUserTurn(int colorVal);
 
+    /**
+     * @brief speedUpSequence speeds up sequence as sequence increases
+     */
     void speedUpSequence();
 };
 
